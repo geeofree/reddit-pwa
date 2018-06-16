@@ -1,6 +1,9 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {injectGlobal} from 'styled-components'
+import {Provider} from 'react-redux'
+import State from 'state'
+import Routes from 'app/routes'
 
 injectGlobal`
   html {
@@ -17,10 +20,9 @@ injectGlobal`
 `
 
 const App = () => (
-  <div className="hello">
-    <h1>testing</h1>
-    <p>hello, world!</p>
-  </div>
+  <Provider store={State}>
+    <Routes />
+  </Provider>
 )
 
 render(<App />, document.getElementById('app'))
